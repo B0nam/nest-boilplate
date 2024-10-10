@@ -10,7 +10,7 @@ import { UsersModule } from './users/users.module';
 @Module({
   imports: [AuthModule, UsersModule,
     ConfigModule.forRoot({
-      envFilePath: `.env.development`
+      envFilePath: `.env.${env.NODE_ENV}`
     }),
     MongooseModule.forRoot(
       `mongodb://${env.DB_USER}:${env.DB_PASSWORD}@${env.DB_HOST}:${env.DB_PORT}/`,
